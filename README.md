@@ -42,7 +42,7 @@ You think to yourself, "Easy, peasy."
     ```
 1.  Take another look inside `/db` and also look in `/db/migrate`. Note the new file and folder created from the migration generation command.
 
-1.  Look at the `/db/migrate/<time_stamp>_create_parts_table.rb` migration file. 
+1.  Look at the `/db/migrate/<time_stamp>_create_parts_table.rb` migration file.
 
 1.  Run your migration:
 
@@ -62,21 +62,21 @@ You think to yourself, "Easy, peasy."
         ```
         $ rails dbconsole
         ```
-        
+
     1.  Look at the tables that exist:
 
         ```
         sqlite> .tables
         ```
-        
+
     1.  Look at the structure of the parts table you just created:
 
         ```
         sqlite> PRAGMA table_info(parts);
         ```
-        
+
         and
-        
+
         ```
         sqlite> .schema parts
         ```
@@ -102,7 +102,7 @@ Your task:
     ```
     $ rails generate migration AddQuantityToParts
     ```
-    
+
 1.  Edit the file just created and insert the details of the migration:
 
     ```ruby
@@ -110,11 +110,11 @@ Your task:
       def change
         change_table :parts do |t|
           t.integer :quantity
-        end    
+        end
       end
     end
     ```
-    
+
 1.  Run the migration.
 
 1.  Look at `schema.rb`.
@@ -152,7 +152,7 @@ Your boss is having a big party and he's decided to use the company's high-power
     - voting preferences
 
 1.  Go through the cycle of:
-    
+
     1.  Running the migration
     2.  Noting the changes in the `schema.rb`
     3.  Noting the changes to the database using `dbconsole`
@@ -168,14 +168,14 @@ Your boss comes in hungover from his big party last night. He's in a particularl
 
 1.  Create a migration to create a locations table. Your boss never gave you any more details about each location, so it's up to you to decide what fields should be added.
 
-1. Go through the cycle of checking in on `schema.rb`, `dbconsole`, rolling back and re-running the migration. 
+1. Go through the cycle of checking in on `schema.rb`, `dbconsole`, rolling back and re-running the migration.
 
 
 ## Obscuring the Party Guests Table
 
-The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. "You have to hide that party list!" 
-"What's the magic word?" you ask. "Do it!" he yells. 
-You shrug. It's not 'please' but it'll do.  
+The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. "You have to hide that party list!"
+"What's the magic word?" you ask. "Do it!" he yells.
+You shrug. It's not 'please' but it'll do.
 
 ### Your Task
 
@@ -189,7 +189,7 @@ You shrug. It's not 'please' but it'll do.
 
 The next day your boss storms in demanding to know why you're tracking the quantity for each part? That's another department's responsibility! You sigh and agree to fix it.
 
-It's a particularly slow day at the office, and your friends have been raving about these `def up` and `def down` methods available to you in your migration files. 
+It's a particularly slow day at the office, and your friends have been raving about these `def up` and `def down` methods available to you in your migration files.
 
 ### Your Task
 
@@ -221,9 +221,9 @@ Your boss runs in, wild-eyed and paranoid. "We're in trouble now," he says, "Our
 
 ## The Director
 
-Oh no! The company found out about the corrupt locations table. Then they looked into the old migration files and noticed the party guests table. The Department's Director calls you and your boss into her office. She wants an explanation. 
+Oh no! The company found out about the purposely corrupted locations table. Then they looked into the old migration files and noticed the party guests table. The Department's Director calls you and your boss into her office. She wants an explanation.
 
-"It's not my fault," your boss stammers, "I'm the best boss ever. Everybody says so. Blame this hotshot over here." 
+"It's not my fault," your boss stammers, "I'm the best boss ever. Everybody says so. Blame this hotshot over here."
 
 The Director shakes her head. "You're unprofessional, you're unethical and now - you're fired." She looks at you and smiles. "Congratulations. A new position has just opened up. How would you like a promotion?"
 
@@ -231,4 +231,14 @@ The Director shakes her head. "You're unprofessional, you're unethical and now -
 
 ## The End
 
-Commit and submit your code. 
+Commit and submit your code.
+
+## Stretch
+
+1. Read up about the various `rails` commands that affect the database. Use `rails -T` on the command line to see a list of them.
+
+1. Change the structure of your database by directly altering `schema.rb`. Be sure to change field names, remove some fields, and add fields that didn't exist before.
+
+1. Drop and setup your database using `rails db:drop` and `rails db:setup`.
+
+1. Now try to `rollback` all the migrations to the beginning. What happens? Try to figure out how to fix this issue and get the proper database structure working again.
