@@ -147,6 +147,8 @@ Your boss is having a big party and he's decided to use the company's high-power
     - medication
     - voting preferences
 
+    Because this migration involves so many details, use the `rails generate migration <migration name>` command to generate the migration file only, and then populate the details inside of that migration file using your editor.
+
 1.  Go through the cycle of:
 
     1.  Running the migration
