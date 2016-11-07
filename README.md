@@ -18,7 +18,7 @@ You're about to reply, "You mean twenty-first century?", but decide to keep quie
 
 1.  Familiarize yourself with the [Active Record Migrations Guide](http://guides.rubyonrails.org/active_record_migrations.html).
 
-1. *Commit your changes after each change you make to the database!*
+1. **Commit your changes after each change you make to the database!**
 
 ![Pointy-Haired Boss](bosses/pointy-haired-boss.gif)
 
@@ -172,8 +172,8 @@ Your boss comes in hungover from his big party last night. He's in a particularl
 
 The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. 
 
-> "You have to hide that party list!"
-> "What's the magic word?" you ask. 
+> "You have to hide that party list!"    
+> "What's the magic word?" you ask.     
 > "Do it!" he yells.
 
 You shrug. It's not 'please' but it'll do.
