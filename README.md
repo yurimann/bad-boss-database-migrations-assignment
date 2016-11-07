@@ -185,15 +185,13 @@ You shrug. It's not 'please' but it'll do.
 
 ![Scrooge](bosses/scrooge.jpg)
 
-## No More Quantity Needed for Parts
+## Quantity Should Track Portions of Parts
 
-The next day your boss storms in demanding to know why you're tracking the quantity for each part? That's another department's responsibility! You sigh and agree to fix it.
-
-It's a particularly slow day at the office, and your friends have been raving about these `def up` and `def down` methods available to you in your migration files.
+The next day your boss storms in demanding to know why you're tracking the quantity as an integer? What if half a part is left? You sigh and agree to fix it.
 
 ### Your Task
 
-1. Remove the `quantity` from the parts table.  Instead of using the regular `def change` method in your migration, use `def up` and `def down`.
+1. Change the `quantity` column from an integer to decimal.  Look up `reversible` in the rails migrations guide to ensure your migration rollbacks work properly.
 
 1. Check in on `schema.rb`, `rails db` and test rolling back and re-migrating. For future migrations, ensure you do this 'cycle' so you're aware of what's happening to your database and that your migrations run 'clean' (i.e. rolling back and re-migrating works fine).
 
