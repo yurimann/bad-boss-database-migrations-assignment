@@ -130,6 +130,7 @@ Your task:
     ```
     SELECT * FROM schema_migrations;
     ```
+1. Now run the command `rails db:migrate:status` for an easier way to see which migrations have already been run. "up" means a migration has been applied, "down" means it hasn't.
 
 ![Miranda Priestly](bosses/miranda-priestly.jpg)
 
