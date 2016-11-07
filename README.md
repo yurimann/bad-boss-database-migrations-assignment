@@ -15,7 +15,6 @@ You're about to reply, "You mean twenty-first century?", but decide to keep quie
 
 1.  Fork this repository.
 
-
 1.  Familiarize yourself with the [Active Record Migrations Guide](http://guides.rubyonrails.org/active_record_migrations.html).
 
 1. **Commit your changes after each change you make to the database!**
@@ -77,7 +76,7 @@ You think to yourself, "Easy, peasy."
         sqlite> .schema parts
         ```
 
-1.  Rollback your migration and note what changed in `schema.rb`:
+1.  It's important to ensure your migrations are reversable: that is, each migration can be undone. This ensures the integrity of the schema. This is done by rolling back and re-running your migrations: if you can do this with no errors, you know your new migration is reversable. Rollback your migration now and note what changed in `schema.rb`:
 
     ```
     $ rails db:rollback
@@ -170,10 +169,10 @@ Your boss comes in hungover from his big party last night. He's in a particularl
 
 ## Obscuring the Party Guests Table
 
-The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. 
+The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual.
 
-> "You have to hide that party list!"    
-> "What's the magic word?" you ask.     
+> "You have to hide that party list!"
+> "What's the magic word?" you ask.
 > "Do it!" he yells.
 
 You shrug. It's not 'please' but it'll do.
