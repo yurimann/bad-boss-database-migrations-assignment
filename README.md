@@ -18,6 +18,8 @@ You're about to reply, "You mean twenty-first century?", but decide to keep quie
 
 1.  Familiarize yourself with the [Active Record Migrations Guide](http://guides.rubyonrails.org/active_record_migrations.html).
 
+1. *Commit your changes after each change you make to the database!*
+
 ![Pointy-Haired Boss](bosses/pointy-haired-boss.gif)
 
 
@@ -38,7 +40,7 @@ You think to yourself, "Easy, peasy."
 1.  Create a migration for the `parts` table. Each part will have a name, manufacturer and cost:
 
     ```
-    $ rails generate migration CreateParts name:string manufacturor:string cost:decimal
+    $ rails generate migration CreateParts name:string manufacturer:string cost:decimal
     ```
 1.  Take another look inside `/db` and also look in `/db/migrate`. Note the new file and folder created from the migration generation command.
 
@@ -57,10 +59,10 @@ You think to yourself, "Easy, peasy."
 
 1.  Look at your actual database:
 
-    1.  Login to the dbconsole:
+    1.  Login to the db:
 
         ```
-        $ rails dbconsole
+        $ rails db
         ```
 
     1.  Look at the tables that exist:
@@ -70,12 +72,6 @@ You think to yourself, "Easy, peasy."
         ```
 
     1.  Look at the structure of the parts table you just created:
-
-        ```
-        sqlite> PRAGMA table_info(parts);
-        ```
-
-        and
 
         ```
         sqlite> .schema parts
@@ -119,13 +115,13 @@ Your task:
 
 1.  Look at `schema.rb`.
 
-1.  Use the `rails dbconsole` to look at your table.
+1.  Use `rails db` to look at your table.
 
 1.  Rollback your migration to ensure rollback is working properly.
 
 1.  Run your migration again.
 
-1.  Look at the content of the `schema_migrations` table in the `dbconsole`. Rails uses this specially generated table to keep track of what migrations it has already run:
+1.  Look at the content of the `schema_migrations` table in the `db`. Rails uses this specially generated table to keep track of what migrations it has already run:
 
     ```
     SELECT * FROM schema_migrations;
@@ -156,7 +152,7 @@ Your boss is having a big party and he's decided to use the company's high-power
 
     1.  Running the migration
     2.  Noting the changes in the `schema.rb`
-    3.  Noting the changes to the database using `dbconsole`
+    3.  Noting the changes to the database using `rails db`
     4.  Ensuring you can properly rollback and re-run the migration.
 
 ![Mr. Burns](bosses/mr-burns.jpg)
@@ -167,22 +163,26 @@ Your boss comes in hungover from his big party last night. He's in a particularl
 
 ### Your Task
 
-1.  Create a migration to create a locations table. Your boss never gave you any more details about each location, so it's up to you to decide what fields should be added.
+1.  Create a migration to create a locations table. Your boss didn't give you any more details about each location, so it's up to you to decide what fields should be added.
 
-1. Go through the cycle of checking in on `schema.rb`, `dbconsole`, rolling back and re-running the migration.
+1. Go through the cycle of checking in on `schema.rb`, `rails db`, rolling back and re-running the migration.
 
 
 ## Obscuring the Party Guests Table
 
-The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. "You have to hide that party list!"
-"What's the magic word?" you ask. "Do it!" he yells.
+The company's IT department has noticed that there's an unusual amount of computation required by the database. Your boss comes in more disheveled than usual. 
+
+> "You have to hide that party list!"
+> "What's the magic word?" you ask. 
+> "Do it!" he yells.
+
 You shrug. It's not 'please' but it'll do.
 
 ### Your Task
 
 1.  Create a migration that changes the table name of `party_guests` to `widgets`.
 
-2.  You know the drill: `schema`, `dbconsole`, rollback, re-migrate.
+2.  You know the drill: `schema`, `rails db`, rollback, re-migrate.
 
 ![Scrooge](bosses/scrooge.jpg)
 
@@ -196,7 +196,7 @@ It's a particularly slow day at the office, and your friends have been raving ab
 
 1. Remove the `quantity` from the parts table.  Instead of using the regular `def change` method in your migration, use `def up` and `def down`.
 
-1. Check in on schema, dbconsole and test rolling back and re-migrating. For future migrations, ensure you do this 'cycle' so your aware of what's happening to your database and that your migrations run 'clean' (i.e. rolling back and re-migrating works fine).
+1. Check in on `schema.rb`, `rails db` and test rolling back and re-migrating. For future migrations, ensure you do this 'cycle' so you're aware of what's happening to your database and that your migrations run 'clean' (i.e. rolling back and re-migrating works fine).
 
 ## Change the Locations Table
 
@@ -204,7 +204,7 @@ Your boss has a scheme to mess up the locations table with the hope the Regional
 
 ### Your Task
 
-1.  Make it so your `locations` table only track two things: `city` and `weather`.
+1.  Make it so your `locations` table only tracks two things: `city` and `weather`.
 
 ![David Brent](bosses/david-brent.jpg)
 
